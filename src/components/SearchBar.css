@@ -1,0 +1,45 @@
+.SearchBar {
+    flex: 1;
+    background-color: rgb(40, 44, 52, 0.75);
+    border-radius: 8px;
+    margin: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: flex-start; */
+}
+.SearchBar form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+.SearchBar input[type="text"] {
+    margin: 8px;
+    border-radius: 8px;
+    border: none;
+    padding: 4px;
+    text-align: center;
+    background-color: #1d282b;
+    color: white;
+    width: 80%;
+    min-width: 20em;
+    font-weight: 500;
+}
+.SearchBar input[type="text"]::placeholder {
+    font-style: italic;
+    font-weight: 200;
+    color: gray;
+}
+.SearchBar input[type="text"]:focus {
+    background-color: #fbfbfb;
+    color: black;
+    transition: background-color .5s;
+}
+.SearchBar button {
+    margin-top: 8px;
+    width: 50%;
+    min-width: 10em;
+}

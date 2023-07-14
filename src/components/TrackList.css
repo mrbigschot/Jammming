@@ -1,0 +1,15 @@
+.TrackList {
+    list-style-type: none;
+    display: flex;
+    padding: 8px;
+    margin: 8px;
+    border-radius: 8px;
+    background-color: #1d282b;
+}
+.SearchResults .TrackList {
+    flex-direction: column;
+    width: 100%;
+}
+.Playlist .Tracklist {
+    flex-direction: row;
+}

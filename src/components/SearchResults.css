@@ -1,0 +1,23 @@
+.SearchResults {
+    flex: 2;
+    background-color: rgb(40, 44, 52, 0.75);
+    border-radius: 8px;
+    margin: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.SearchResults .TrackList {
+    height: 15em;
+    overflow-y: auto;
+}
+.SearchResults .Track {
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+    justify-content: space-between;
+}
+.SearchResults .Track + .Track {
+    border-top: 2px solid #5d8a64;
+}

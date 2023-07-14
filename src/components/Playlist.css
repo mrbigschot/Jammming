@@ -1,0 +1,24 @@
+.Playlist {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(40, 44, 52, 0.75);
+    border-radius: 8px;
+    margin: 8px;
+    width: 100%;
+}
+.Playlist .TrackList {
+    width: 80%;
+    overflow-x: auto;
+}
+.Playlist .Track {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px;
+    min-width: 20em;
+    max-width: 20em;
+}
+.Playlist .Track + .Track {
+    border-left: 2px solid #5d8a64;
+}

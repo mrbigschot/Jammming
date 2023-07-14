@@ -1,38 +1,78 @@
+h2 { font-size: 16px; }
+
+button {
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.1s;
+    height: 2.5em;
+}
+button.standard {
+    background-color: #1a972b;
+    padding: 8px 16px;
+    min-width: 5em;
+    width: 15em;
+}
+button.standard:disabled {
+    background-color: gray;
+    color: lightgray;
+    cursor: not-allowed;
+}
+button.subtle {
+    background-color: transparent;
+    padding: 4px 4px;
+    min-width: 3em;
+}
+button:hover { background-color: #6ae77b; }
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    background-color: #0f3c2e;
+    text-align: center;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #1d2122;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.App-header .mmm {
+    display: inline;
+    color: #6ae77b;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-content-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+.App-content-background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.1;
+    filter: grayscale(100%);
+}
+.App-content {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    padding: 8px;
+}
+.App-content-section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
