@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import './SearchBar.css';
 
 function SearchBar() {
-    const [title, setTitle] = useState('');
-    const handleInputChangeTitle = ({target}) => { setTitle(target.value); };
+    const [song, setSong] = useState('');
+    const handleInputChangeSong = ({target}) => { setSong(target.value); };
 
     const [artist, setArtist] = useState('');
     const handleInputChangeArtist = ({target}) => { setArtist(target.value); };
@@ -18,10 +18,10 @@ function SearchBar() {
     return (
         <div className="SearchBar">
             <form onSubmit={handleSubmit}>
-                <h2>Search for tracks...</h2>
+                <h2>Search for songs...</h2>
                 
                 <div>
-                    <input type="text" placeholder="Title" value={title} onChange={handleInputChangeTitle} />
+                    <input type="text" placeholder="Song" value={song} onChange={handleInputChangeSong} />
                     <input type="text" placeholder="Artist" value={artist} onChange={handleInputChangeArtist} />
                     <input type="text" placeholder="Album" value={album} onChange={handleInputChangeAlbum} />
                 </div>

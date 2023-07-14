@@ -2,23 +2,44 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: rgb(40, 44, 52, 0.75);
-    border-radius: 8px;
-    margin: 8px;
     width: 100%;
 }
-.Playlist .TrackList {
+.Playlist form { flex: 1; }
+.Playlist input[type="text"] {
+    margin: 8px;
+    border-radius: 8px;
+    border: none;
+    padding: 4px;
+    text-align: center;
+    background-color: #1d282b;
+    color: white;
     width: 80%;
+    min-width: 20em;
+    font-weight: 500;
+}
+.Playlist input[type="text"]::placeholder {
+    font-style: italic;
+    font-weight: 200;
+    color: gray;
+}
+.Playlist input[type="text"]:focus {
+    background-color: #fbfbfb;
+    color: black;
+    transition: background-color .5s;
+}
+.Playlist .TrackList {
+    flex: 2; 
     overflow-x: auto;
+    height: 3em;
 }
 .Playlist .Track {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 8px;
-    min-width: 20em;
-    max-width: 20em;
+    min-width: 15em;
+    max-width: 15em;
 }
 .Playlist .Track + .Track {
-    border-left: 2px solid #5d8a64;
+    border-left: 2px solid #3c3c3c;
 }

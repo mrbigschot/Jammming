@@ -25,8 +25,12 @@ button.subtle {
     background-color: transparent;
     padding: 4px 4px;
     min-width: 3em;
+    color: #1a972b;
 }
-button:hover { background-color: #6ae77b; }
+button:hover {
+    background-color: #6ae77b;
+    color: white;
+}
 
 .App {
     background-color: #0f3c2e;
@@ -40,8 +44,9 @@ button:hover { background-color: #6ae77b; }
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
+    /* font-size: calc(10px + 2vmin); */
     color: white;
+    height: 10vmin;
 }
 .App-header .mmm {
     display: inline;
@@ -50,6 +55,7 @@ button:hover { background-color: #6ae77b; }
 .App-content-wrapper {
     overflow: hidden;
     position: relative;
+    height: 90vmin;
 }
 .App-content-background {
     position: absolute;
@@ -62,17 +68,23 @@ button:hover { background-color: #6ae77b; }
 }
 .App-content {
     position: relative;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    align-items: center;
     padding: 8px;
+    color: white;
+    font-size: calc(10px + 2vmin);
 }
 .App-content-section {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 90%;
+
+    background-color: rgb(40, 44, 52, 0.75);
+    border-radius: 8px;
+    margin: 8px;
+    padding: 8px;
 }
+.App-content-section:nth-child(1) { flex: 2; }
+.App-content-section:nth-child(2) { flex: 1; }
+
