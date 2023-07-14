@@ -44,13 +44,17 @@ button:hover {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    /* font-size: calc(10px + 2vmin); */
     color: white;
     height: 10vmin;
 }
 .App-header .mmm {
     display: inline;
     color: #6ae77b;
+}
+.App-header h2 {
+    margin-left: 1em;
+    font-style: italic;
+    color: lightgray;
 }
 .App-content-wrapper {
     overflow: hidden;

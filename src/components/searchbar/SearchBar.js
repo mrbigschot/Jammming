@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './SearchBar.css';
 
-function SearchBar() {
+function SearchBar(props) {
     const [song, setSong] = useState('');
     const handleInputChangeSong = ({target}) => { setSong(target.value); };
 
@@ -13,6 +13,8 @@ function SearchBar() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        alert("Simulating a search");
+        // props.setSearchResults([]);
     }
 
     return (
