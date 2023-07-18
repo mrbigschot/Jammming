@@ -4,7 +4,7 @@ import TrackList from '../tracklist/TrackList';
 import './Playlist.css';
 
 function Playlist(props) {
-    const inputPlaylistNameChange = ({target}) => { props.setPlaylistName(target.value); }
+    const onChangePlaylistName = ({target}) => { props.updatePlaylistName(target.value); }
     
     let enableSaveButton = props.playlist.length !== 0 && props.playlistName;
     let saveButton = enableSaveButton ? 
@@ -19,7 +19,7 @@ function Playlist(props) {
     return (
         <div className="Playlist">
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Playlist Name" value={props.playlistName} onChange={inputPlaylistNameChange} />
+                <input type="text" placeholder="Playlist Name" value={props.playlistName} onChange={onChangePlaylistName} />
                 {saveButton}
             </form>
             <TrackList tracks={props.playlist} context="playlist" action={props.removeFunction} />
