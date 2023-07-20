@@ -4,8 +4,14 @@ import Track from '../track/Track';
 import './TrackList.css';
 
 function TrackList(props) {
-    let trackComponents = props.tracks.map((track) => {
-            return <Track key={track.id} context={props.context} trackInfo={track} action={props.action} />;
+    let trackComponents = props.tracks.map((track, trackIndex) => {
+            return <Track 
+                key={track.id} 
+                context={props.context} 
+                trackInfo={track} 
+                trackIndex={trackIndex + 1} 
+                action={props.action} 
+            />;
         }
     );
     

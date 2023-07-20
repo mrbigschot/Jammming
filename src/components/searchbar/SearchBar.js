@@ -19,7 +19,7 @@ function SearchBar(props) {
     return (
         <div className="SearchBar">
             <form onSubmit={handleSubmit}>
-                <h2>Search for songs...</h2>
+                <h3>Search for songs...</h3>
                 <div>
                     <input type="text" placeholder="Song" value={song} onChange={handleInputChangeSong} />
                     <input type="text" placeholder="Artist" value={artist} onChange={handleInputChangeArtist} />

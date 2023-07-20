@@ -5,7 +5,7 @@ import './SearchResults.css';
 
 function SearchResults(props) {
     return (
-        <div className="SearchResults">
+        <div className="SearchResults TrackListContainer">
             <TrackList tracks={props.results} context="search" action={props.addFunction} />
         </div>
     );

@@ -3,10 +3,13 @@ import './Track.css';
 
 function Track(props) {
     let actionName;
+    let trackPrefix;
     if (props.context === 'playlist') {
         actionName = '-';
+        trackPrefix = props.trackIndex + ". ";
     } else {
         actionName = '+';
+        trackPrefix = '';
     }
     const handleAction = () => props.action(props.trackInfo);
     
@@ -14,7 +17,7 @@ function Track(props) {
         <li className="Track">
             <div className="TrackDetails">
                 <div className="TrackTitle">
-                    {props.trackInfo.name}
+                    {trackPrefix + props.trackInfo.name}
                 </div>
                 <div className="TrackSubtitle">
                     <span className="Artist">{props.trackInfo.artist}</span>

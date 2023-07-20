@@ -11,7 +11,7 @@
     border: none;
     padding: 4px;
     text-align: center;
-    background-color: #1d282b;
+    background-color: #2d2d2d;
     color: white;
     width: 80%;
     min-width: 20em;
@@ -27,19 +27,31 @@
     color: black;
     transition: background-color .5s;
 }
-.Playlist .TrackList {
+.Playlist .TrackListContainer {
     flex: 2; 
     overflow-x: auto;
-    height: 3em;
 }
 .Playlist .Track {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 8px;
-    min-width: 15em;
-    max-width: 15em;
+    min-width: 20em;
+    /* min-width: 75%; */
 }
 .Playlist .Track + .Track {
     border-left: 2px solid #3c3c3c;
+}
+@media only screen and (max-width: 700px) {
+    .Playlist {
+        flex-direction: column;
+        align-items: normal;
+    }
+    .Playlist form {
+        margin-bottom: 2vmin;
+    }
+    .Playlist .TrackListContainer {
+        /* width: 100%; */
+        flex: 2;
+    }
 }

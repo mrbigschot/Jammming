@@ -1,5 +1,13 @@
-h2 { font-size: 16px; }
+html {
+    font-size: 16px;
+}
+html, body, div#root, div#root > div {
+    height: 100vh;
+}
 
+h1 { font-size: 2.5rem; margin: 0; }
+h2 { font-size: 1.25rem; margin: 0; }
+h3 { font-size: 1rem; margin: 0; }
 button {
     border: none;
     border-radius: 16px;
@@ -11,7 +19,8 @@ button {
     height: 2.5em;
 }
 button.standard {
-    background-color: #1a972b;
+    background-color: #e6772d;
+    /* background-color: #1a972b; */
     padding: 8px 16px;
     min-width: 5em;
     width: 15em;
@@ -25,50 +34,40 @@ button.subtle {
     background-color: transparent;
     padding: 4px 4px;
     min-width: 3em;
-    color: #1a972b;
+    color: #e0801a;
+    /* color: #1a972b; */
 }
 button:hover {
-    background-color: #6ae77b;
+    background-color: #ff9d5b;
+    /* background-color: #6ae77b; */
     color: white;
 }
 
 .App {
-    background-color: #0f3c2e;
+    background-color: #6d1717;
+    /* background-color: #0f3c2e; */
     text-align: center;
+    /* height: 100vmin; */
+    /* filter: grayscale(100%); */
+    min-width: 360px;
 }
+.App-background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    filter: grayscale(100%);
 
-.App-header {
-    background-color: #1d2122;
-    min-height: 10vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    height: 10vmin;
-}
-.App-header .mmm {
-    display: inline;
-    color: #6ae77b;
-}
-.App-header h2 {
-    margin-left: 1em;
-    font-style: italic;
-    color: lightgray;
+    background-image: url('./background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .App-content-wrapper {
     overflow: hidden;
     position: relative;
-    height: 90vmin;
-}
-.App-content-background {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: auto;
-    opacity: 0.1;
-    filter: grayscale(100%);
+    /* height: 90vmin; */
 }
 .App-content {
     position: relative;
@@ -77,18 +76,33 @@ button:hover {
     align-items: center;
     padding: 8px;
     color: white;
-    font-size: calc(10px + 2vmin);
 }
 .App-content-section {
     display: flex;
     flex-direction: row;
     width: 90%;
 
-    background-color: rgb(40, 44, 52, 0.75);
-    border-radius: 8px;
-    margin: 8px;
-    padding: 8px;
+    background-color: rgb(25, 25, 25, 0.75);
+    border-radius: 1vmin;
+    margin: 1vmin;
+    padding: 2vmin;
 }
+.App-content-section.Startup { justify-content: center; }
+.App-content-section.Startup button + button { margin-left: 1em; }
 .App-content-section:nth-child(1) { flex: 2; }
 .App-content-section:nth-child(2) { flex: 1; }
 
+@media only screen and (max-width: 700px) {
+    html, body, div#root, div#root > div {
+        height: auto;
+        min-height: 100vh;
+    }
+    .App-content-section {
+        flex-direction: column;
+    }
+    .App-content-section.Startup { align-items: center; }
+    .App-content-section.Startup button + button {
+        margin-left: 0;
+        margin-top: 1em;
+    }
+}

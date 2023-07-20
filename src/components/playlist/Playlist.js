@@ -22,7 +22,9 @@ function Playlist(props) {
                 <input type="text" placeholder="Playlist Name" value={props.playlistName} onChange={onChangePlaylistName} />
                 {saveButton}
             </form>
-            <TrackList tracks={props.playlist} context="playlist" action={props.removeFunction} />
+            <div className="TrackListContainer">
+                <TrackList tracks={props.playlist} context="playlist" action={props.removeFunction} />
+            </div>
         </div>
     );
 }

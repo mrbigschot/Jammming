@@ -1,13 +1,8 @@
 .SearchBar {
     flex: 1;
-    /* background-color: rgb(40, 44, 52, 0.75); */
-    /* border-radius: 8px; */
-    /* margin: 8px; */
-    /* padding: 16px; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: flex-start; */
 }
 .SearchBar form {
     display: flex;
@@ -22,7 +17,7 @@
     border: none;
     padding: 4px;
     text-align: center;
-    background-color: #1d282b;
+    background-color: #2d2d2d;
     color: white;
     width: 80%;
     min-width: 20em;
@@ -42,4 +37,9 @@
     margin-top: 8px;
     width: 50%;
     min-width: 10em;
+}
+@media only screen and (max-width: 700px) {
+    .SearchBar {
+        margin-bottom: 2vmin;
+    }
 }

@@ -2,22 +2,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 .TrackDetails {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 75%;
 }
 .TrackDetails .TrackTitle {
-    font-size: 0.75em;
-    max-width: 25em;
+    font-size: 1rem;
+    max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 .TrackDetails .TrackSubtitle {
-    font-size: 0.5em;
+    font-size: 0.75rem;
     padding: 0.5em 1em 0.5em 0.5em;
+    text-align: left;
+    width: 100%;
 }
 .TrackDetails .TrackSubtitle span + span {
    margin-left: 1em;
@@ -31,12 +35,9 @@
 }
 
 .TrackDetails .TrackSubtitle .Artist {
-    max-width: 20em;
+    max-width: 50%;
 }
 .TrackDetails .TrackSubtitle .Album {
     color: gray;
-    max-width: 18em;
-}
-.Track button {
-    
+    max-width: 40%;
 }

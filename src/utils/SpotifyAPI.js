@@ -1,9 +1,9 @@
-import clientID from './SpotifyAPISupport';
-
+const devMode = true;
+const redirectUri = (devMode ? 'http://localhost:3000/' : 'https://mrbigschot.github.io/Jammming/');
+const corsPrefix = (devMode ? 'https://cors-anywhere.herokuapp.com/' : '');
+const clientID = '91bf79d84fff4ec0b9960048ab233286';
 const spotifyLoginUrl = 'https://accounts.spotify.com';
 const spotifyApiUrl = 'https://api.spotify.com/v1';
-const redirectUri = 'http://localhost:3000/';
-const corsPrefix = 'https://cors-anywhere.herokuapp.com/';
 
 let accessToken = null;
 
@@ -12,10 +12,8 @@ const SpotifyAPI = {
         var loginUrl = spotifyLoginUrl + '/authorize';
         loginUrl += '?response_type=token';
         loginUrl += '&client_id=' + encodeURIComponent(clientID);
-        // url += '&scope=' + encodeURIComponent(scope);
+        loginUrl += '&scope=' + encodeURIComponent("playlist-modify-public");
         loginUrl += '&redirect_uri=' + encodeURIComponent(redirectUri);
-        // url += '&state=' + encodeURIComponent(state);
-    
         window.location = loginUrl;
     },
 
@@ -35,9 +33,16 @@ const SpotifyAPI = {
           accessToken = accessTokenHash[1];
           const expiresIn = Number(expiresInHash[1]);
           window.setTimeout(SpotifyAPI.expireConnection, expiresIn * 1000);
-          window.history.pushState('Access Token', null, '/'); // This clears the parameters, allowing us to grab a new access token when it expires.
+          window.history.pushState('Access Token', null, '/'); // stomp on the parameter-containing url from the history
           return accessToken;
         }
+    },
+
+    getRequestHeaders() {
+        return {
+            'accept': 'application/json',
+            'Authorization': 'Bearer ' + accessToken
+        };
     },
 
     async searchSongs(song, artist, album) {
@@ -56,10 +61,7 @@ const SpotifyAPI = {
             let fetchUrl = corsPrefix + spotifyApiUrl + endpointUrl + params;
             let fetchSettings = {
                 method: 'GET',
-                headers: {
-                    'accept': 'application/json',
-                    'Authorization': 'Bearer ' + accessToken
-                }
+                headers: SpotifyAPI.getRequestHeaders()
             };
         
             try {
@@ -85,12 +87,85 @@ const SpotifyAPI = {
         }
     },
 
-    async savePlaylist(name, tracks) {
-        // get the User's Spotify ID
+    async getUserID() {
+        if (SpotifyAPI.getAccessToken()) {
+            let endpointUrl = "/me";
+            let fetchUrl = corsPrefix + spotifyApiUrl + endpointUrl;
+            let fetchSettings = {
+                method: 'GET',
+                headers: SpotifyAPI.getRequestHeaders()
+            };
+        
+            try {
+                let response = await fetch(fetchUrl, fetchSettings);
+                if (response.ok) {
+                    let jsonResponse = await response.json();
+                    let userId = jsonResponse.id;
+                    return userId;
+                }
+                throw new Error('Request failed!');
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    },
 
-        // create a Playlist using the UserID
+    async createPlaylist(userId, playlistName) {
+        if (SpotifyAPI.getAccessToken()) {
+            let endpointUrl = `/users/${userId}/playlists`;
+            let fetchUrl = corsPrefix + spotifyApiUrl + endpointUrl;
+            let fetchSettings = {
+                method: 'POST',
+                headers: SpotifyAPI.getRequestHeaders(),
+                body: JSON.stringify({
+                    "name": playlistName,
+                    "description": "Created using the Jammming app"
+                })
+            };
+        
+            try {
+                let response = await fetch(fetchUrl, fetchSettings);
+                if (response.ok) {
+                    let jsonResponse = await response.json();
+                    let playlistId = jsonResponse.id;
+                    return playlistId;
+                }
+                throw new Error('Request failed!');
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    },
 
-        // add songs to the playlist
+    async addPlaylistTracks(playlistId, tracks) {
+        if (SpotifyAPI.getAccessToken()) {
+            let endpointUrl = `/playlists/${playlistId}/tracks`;
+            let fetchUrl = corsPrefix + spotifyApiUrl + endpointUrl;
+            let fetchSettings = {
+                method: 'POST',
+                headers: SpotifyAPI.getRequestHeaders(),
+                body: JSON.stringify({
+                    "uris": tracks.map((track => track.uri))
+                })
+            };
+        
+            try {
+                let response = await fetch(fetchUrl, fetchSettings);
+                if (response.ok) {
+                    let jsonResponse = await response.json();
+                    return jsonResponse.snapshot_id;
+                }
+                throw new Error('Request failed!');
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    },
+
+    async savePlaylist(playlistName, tracks) {
+        let userId = await SpotifyAPI.getUserID();
+        let playlistId = await SpotifyAPI.createPlaylist(userId, playlistName);
+        return await SpotifyAPI.addPlaylistTracks(playlistId, tracks);
     }
 };
 

@@ -1,14 +1,21 @@
+.TrackListContainer {
+    padding: 2vmin;
+    margin: 0;
+    border-radius: 2vmin;
+    background-color: #2d2d2d;
+    overflow-y: auto;
+    overflow-x: clip;
+    min-height: 3em;
+}
 .TrackList {
     list-style-type: none;
     display: flex;
-    padding: 8px;
-    margin: 8px;
-    border-radius: 8px;
-    background-color: #1d282b;
+    padding: 0;
+    margin: 0;
+    height: 100%;
 }
 .SearchResults .TrackList {
     flex-direction: column;
-    width: 100%;
 }
 .Playlist .Tracklist {
     flex-direction: row;
