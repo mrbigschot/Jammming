@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "eb7802f343b9eda33b59",
+    "revision": "3a6e6fd7c780b50e5fab",
     "url": "/Jammming/static/css/main.2139f95c.chunk.css"
   },
   {
-    "revision": "eb7802f343b9eda33b59",
-    "url": "/Jammming/static/js/main.3cc3b3d1.chunk.js"
+    "revision": "3a6e6fd7c780b50e5fab",
+    "url": "/Jammming/static/js/main.20c22a83.chunk.js"
   },
   {
     "revision": "087f383dcd4b68f762d4",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/Jammming/static/media/background.89c0c7b8.jpg"
   },
   {
-    "revision": "5ad15d8d05087af497ccc6feec5f6dff",
+    "revision": "75c027b47992e3143693de4f0e42407f",
     "url": "/Jammming/index.html"
   }
 ];
