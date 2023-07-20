@@ -108,6 +108,9 @@ function App() {
             <div className="App-content-wrapper">
                 {appContent}
             </div>
+            <footer>
+                &#169; Paul Schot 2023
+            </footer>
         </div>
     );
 }
